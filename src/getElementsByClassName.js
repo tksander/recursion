@@ -1,30 +1,31 @@
-
 // --------------------------------------------------
 //  getElementByClassName
 // --------------------------------------------------
-var getElementsByClassName = function(className
-){
+var getElementsByClassName = function(className) {
 
     var elementArr = [];
-    var body = document.body
-    
-    (function recurse(element) {
 
+    function recurse(element) {
+
+        console.log("classlist:  " + element.classList + "||" + "element: " + element);
         // current element contains the classname
         if(element.classList.contains(className)) {
             elementArr.push(element)
         }
 
         // if the element has childnodes
-        else if(element.hasChildNodes()) {
+        if(element.hasChildNodes()) {
+            console.log("element in else if:   " + element);
             var children = element.childNodes
             for(var i = 0; i < children.length; i++) {
-                recurse(children[i])
+                if(children[i].nodeType !== 3) {
+                    recurse(children[i])
+                }
             }
         }
-    })(body);
+    };
 
-
+    recurse(document.body);
 
     // return the array populated with elements
     return elementArr
@@ -32,12 +33,6 @@ var getElementsByClassName = function(className
 
 
 /*
-Returns an array-like object of all
-child elements which have all of the
-given class names
-
-Dcoument model is searched, including
-the root node
 
 
 element.classList // returns a token list of 

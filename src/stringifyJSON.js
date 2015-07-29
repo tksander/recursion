@@ -59,7 +59,6 @@ function emptyObject(testObj) {
     if(Array.isArray(obj)) {
         // if empty array
         if(obj.length === 0) {
-            console.log("We found an empty one!");
             return "[]";
         }
 
@@ -80,7 +79,6 @@ function emptyObject(testObj) {
 
         // if empty object
         if(emptyObject(obj)) {
-            console.log("We found an empty object!");
             return "{}";
         }
 
@@ -98,12 +96,15 @@ function emptyObject(testObj) {
     }
 };
 
+
+// -------- Test functions ----------- //
+/*
 testString({
     'functions': function(){},
     'undefined': undefined
   });
 
-// -------- Test functions ----------- //
+
 function isString(obj) {
     console.log("typeof " + obj + ":  " + typeof obj);
 }
@@ -117,3 +118,4 @@ function testString(obj) {
     isString(res);
     printObj(res);
 }
+*/
